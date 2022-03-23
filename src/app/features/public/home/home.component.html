@@ -5,6 +5,15 @@
   <main role="main">
     <!-- Start: Implementation -->
     👉 Your code goes here 👈
+    <br><br>
+    <div *ngFor="let card of celebritys" class="celebrity-card"
+      [ngStyle]="{'background-image': 'url(/assets/img/'+card.picture+')'}">
+      <div class="celebrity-card__content">
+        <h2 class="celebrity-card__title">{{card.name}}</h2>
+        <p class="celebrity-card__desc">{{card.description}}</p>
+        <p class="celebrity-card__desc">in <span class="celebrity-card__categ">{{card.category}}</span></p>
+      </div>
+    </div>
     <!-- End: Implementation -->
   </main>
   <app-banner-bottom></app-banner-bottom>
