@@ -11,7 +11,7 @@
       <div class="celebrity-card__content">
         <h2 class="celebrity-card__title">{{card.name}}</h2>
         <p class="celebrity-card__desc">{{card.description}}</p>
-        <p class="celebrity-card__desc">in <span class="celebrity-card__categ">{{card.category}}</span></p>
+        <p class="celebrity-card__desc">{{(card.lastUpdated | dfnsParseIso) | dfnsFormatDistanceToNow}} in <span class="celebrity-card__categ">{{card.category}}</span></p>
       </div>
     </div>
     <!-- End: Implementation -->
