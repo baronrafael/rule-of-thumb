@@ -494,7 +494,6 @@ select {
 
 .select {
   font-size: 10.5px;
-  display: grid;
   grid-template-areas: "select";
   align-items: center;
   select,
@@ -513,6 +512,10 @@ select {
     z-index: 1;
     margin: 0 1em 0 0;
   }
+}
+
+.celebrity-section__header select, .celebrity-section__header .select {
+  display: none;
 }
 
 .celebrity-card__container {
@@ -666,11 +669,6 @@ select {
   .banner-top .banner__right {
     flex-basis: 70%;
   }
-
-  select,
-  .select {
-    display: none;
-  }
 }
 
 @media all and (min-width: 768px) {
@@ -793,11 +791,11 @@ select {
     margin-left: 10.5px;
   }
 
-  .select {
+  .celebrity-section__header .select {
     display: grid;
   }
 
-  select {
+  .celebrity-section__header select {
     display: block;
   }
 }
@@ -983,7 +981,7 @@ select {
   .celebrity-section__header {
     margin-left: 1rem;
     margin-right: 1rem;
-}
+  }
 
   select {
     width: 173px;
