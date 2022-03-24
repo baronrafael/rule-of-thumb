@@ -463,6 +463,58 @@ main h2 {
   display: contents;
 }
 
+.celebrity-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.celebrity-section__title {
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 29px;
+  color: var(--color-dark-gray);
+  margin: 0;
+}
+
+select {
+  text-align: center;
+  appearance: none;
+  border: 2px solid #333333;
+  width: 131px;
+  height: 28px;
+  padding: 0 1em 0 0;
+  font-size: inherit;
+  cursor: inherit;
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.select {
+  font-size: 10.5px;
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  select,
+  &::after {
+    grid-area: select;
+  }
+  cursor: pointer;
+  // Custom arrow
+  &:not(.select--multiple)::after {
+    content: "";
+    justify-self: end;
+    width: 10.5px;
+    height: 7px;
+    background: #333333;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    z-index: 1;
+    margin: 0 1em 0 0;
+  }
+}
+
 .celebrity-card__container {
   display: flex;
   overflow-x: scroll;
@@ -511,7 +563,7 @@ main h2 {
   font-size: 2rem;
   font-weight: 400;
   max-height: 10.5rem;
-  color: #ffffff;
+  color: var(--color-white);
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
@@ -521,7 +573,7 @@ main h2 {
 
 .celebrity-card__desc {
   margin-bottom: 0;
-  color: #ffffff;
+  color: var(--color-white);
   display: -webkit-box;
   overflow: hidden;
   max-height: 10.5rem;
@@ -533,7 +585,7 @@ main h2 {
 }
 
 .celebrity-card__time {
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 700;
   font-size: 1rem;
   text-align: right;
@@ -554,13 +606,13 @@ main h2 {
 }
 
 .celebrity-button {
-  color: #ffffff;
+  color: var(--color-white);
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
   text-align: center;
   background: rgba(0, 0, 0, 0.6);
-  border: 1px solid #ffffff;
+  border: 1px solid var(--color-white);
   box-sizing: border-box;
   width: 107px;
   height: 38px;
@@ -601,7 +653,7 @@ main h2 {
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
-  color: #ffffff;
+  color: var(--color-white);
   margin-left: 6px;
   margin-right: 6px;
 }
@@ -615,6 +667,10 @@ main h2 {
     flex-basis: 70%;
   }
 
+  select,
+  .select {
+    display: none;
+  }
 }
 
 @media all and (min-width: 768px) {
@@ -737,6 +793,13 @@ main h2 {
     margin-left: 10.5px;
   }
 
+  .select {
+    display: grid;
+  }
+
+  select {
+    display: block;
+  }
 }
 
 @media all and (min-width: 1100px) {
@@ -917,6 +980,20 @@ main h2 {
     margin: 2rem 0;
   }
 
+  .celebrity-section__header {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+  select {
+    width: 173px;
+    height: 36px;
+  }
+
+  .select {
+    font-size: 13.5px;
+  }
+
   .celebrity-card {
     width: calc(33% - 22px);
     margin: 0;
@@ -924,7 +1001,9 @@ main h2 {
     margin-bottom: 10.5px;
   }
 
-  .celebrity-card:nth-child(3n-1), .celebrity-card:nth-child(3n-2), .celebrity-card:nth-child(3n-3) {
+  .celebrity-card:nth-child(3n-1),
+  .celebrity-card:nth-child(3n-2),
+  .celebrity-card:nth-child(3n-3) {
     margin-right: 10.5px;
     margin-left: 10.5px;
   }
@@ -939,6 +1018,5 @@ main h2 {
 
   .celebrity-card__time {
     font-size: 0.7rem;
-}
-
+  }
 }
