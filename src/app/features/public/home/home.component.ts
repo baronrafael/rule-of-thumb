@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+const MAX_PHONE_SIZE = 767;
+
 const data = [
   {
       "name": "Kanye West",
@@ -73,14 +75,22 @@ const data = [
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
 
   celebritys = data;
+  bGridCards: boolean = true;
+  cardValue!: string;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.celebritys);
+  }
+
+  checkScreenSize(event: any) {
+    if(event.target.innerWidth <= MAX_PHONE_SIZE) {
+      this.bGridCards = true;
+    }
   }
 
 }

@@ -1,0 +1,38 @@
+<!-- <div class="celebrity-card" [ngStyle]="{'background-image': 'url(/assets/img/'+celebrity.picture+')'}"> -->
+  <div class="celebrity-card__content">
+    <div class="celebrity-card__info">
+      <h2 class="celebrity-card__title">{{celebrity.name}}</h2>
+      <p class="celebrity-card__desc">{{celebrity.description}}</p>
+      <p class="celebrity-card__time">
+        {{(celebrity.lastUpdated | dfnsParseIso) | dfnsFormatDistanceToNow}} in <span
+          class="celebrity-card__categ">{{celebrity.category}}</span>
+      </p>
+      <div class="celebrity-card__buttons">
+        <button class="icon-button reaction-button" aria-label="thumbs up">
+          <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+        </button>
+        <button class="icon-button reaction-button" aria-label="thumbs down">
+          <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+        </button>
+        <button class="celebrity-button" aria-label="vote now">
+          Vote Now
+        </button>
+      </div>
+    </div>
+    <div class="celebrity-card__data"
+      [ngStyle]="{'background': 'linear-gradient(90deg, rgba(60, 187, 180, 0.8) '+celebrity.votes.positive*100/(celebrity.votes.positive+celebrity.votes.negative)+'%, rgba(249, 173, 29, 0.8) '+celebrity.votes.positive*100/(celebrity.votes.positive+celebrity.votes.negative)+'%)'}">
+      <div aria-label="thumbs up">
+        <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+        <span class="percentage-number">{{ (celebrity.votes.positive/(celebrity.votes.positive+celebrity.votes.negative)
+          |
+          percent) }}</span>
+      </div>
+      <div aria-label="thumbs down">
+        <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+        <span class="percentage-number">{{ (celebrity.votes.negative/(celebrity.votes.positive+celebrity.votes.negative)
+          |
+          percent) }}</span>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
