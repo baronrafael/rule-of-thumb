@@ -14,7 +14,7 @@
       <h2 class="celebrity-card__list__title">{{celebrity.name}}</h2>
       <p class="celebrity-card__list__desc">{{celebrity.description}}</p>
     </div>
-    <div>
+    <div class="celebrity-card__list__actions">
       <p *ngIf="!bAlreadyVote" class="celebrity-card__time">
         {{(celebrity.lastUpdated | dfnsParseIso) | dfnsFormatDistanceToNow}} in <span
           class="celebrity-card__categ">{{celebrity.category}}</span>
