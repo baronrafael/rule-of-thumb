@@ -1,4 +1,14 @@
 <div class="celebrity-card__list__content">
+  <button
+    *ngIf="celebrity.votes.positive*100/(celebrity.votes.positive+celebrity.votes.negative) > celebrity.votes.negative*100/(celebrity.votes.positive+celebrity.votes.negative)"
+    class="icon-button reaction-button reaction-button__list__most" aria-label="thumbs up">
+    <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+  </button>
+  <button
+    *ngIf="celebrity.votes.positive*100/(celebrity.votes.positive+celebrity.votes.negative) < celebrity.votes.negative*100/(celebrity.votes.positive+celebrity.votes.negative)"
+    class="icon-button reaction-button reaction-button__list__most" aria-label="thumbs down">
+    <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+  </button>
   <div class="celebrity-card__list__info">
     <div class="celebrity-card__list__text">
       <h2 class="celebrity-card__list__title">{{celebrity.name}}</h2>
