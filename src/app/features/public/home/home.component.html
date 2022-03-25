@@ -8,18 +8,23 @@
     <div class="celebrity-section__header">
       <h2 class="celebrity-section__title">Previous Rulings</h2>
       <div class="select">
-        <select id="standard-select">
-          <option value="grid">Grid</option>
-          <option value="list">List</option>
+        <select [(ngModel)]="bGridCards" id="standard-select">
+          <option [ngValue]="true">Grid</option>
+          <option [ngValue]="false">List</option>
         </select>
       </div>
     </div>
-    <div class="celebrity-card__container">
-      <!-- <app-celebrity-grid-card *ngFor="let celebrity of celebritys" [celebrity]="celebrity" class="celebrity-card"
+    <div (window:resize)="checkScreenSize($event)" class="celebrity-card__container">
+      <ng-container *ngIf="bGridCards">
+        <app-celebrity-grid-card *ngFor="let celebrity of celebritys" [celebrity]="celebrity" class="celebrity-card"
+          [ngStyle]="{'background-image': 'url(/assets/img/'+celebrity.picture+')'}">
+        </app-celebrity-grid-card>
+      </ng-container>
+      <ng-container *ngIf="!bGridCards">
+        <app-celebrity-list-card *ngFor="let celebrity of celebritys" [celebrity]="celebrity" class="celebrity-card__list"
         [ngStyle]="{'background-image': 'url(/assets/img/'+celebrity.picture+')'}">
-      </app-celebrity-grid-card> -->
-      <app-celebrity-list-card *ngFor="let celebrity of celebritys" [celebrity]="celebrity" class="celebrity-card__list"
-        [ngStyle]="{'background-image': 'url(/assets/img/'+celebrity.picture+')'}"></app-celebrity-list-card>
+      </app-celebrity-list-card>
+      </ng-container>
     </div>
     <!-- End: Implementation -->
   </main>
