@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { DateFnsModule } from 'ngx-date-fns';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -10,6 +11,7 @@ import { CelebrityGridCardComponent } from './components/cards/celebrity-grid-ca
 import { CelebrityListCardComponent } from './components/cards/celebrity-list-card/celebrity-list-card.component';
 
 const MODULES = [
+  FormsModule,
   DateFnsModule
 ];
 
