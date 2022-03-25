@@ -566,11 +566,17 @@ select {
 
 .celebrity-card__info__header {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
 .celebrity-card__item__padding {
   padding: 0px 36px 0px 36px;
+}
+
+.celebrity-card__title__padding {
+  padding: 0px 36px 0px 6px;
+  max-width: calc(100% - 72px);
 }
 
 .celebrity-card__title {
@@ -624,7 +630,7 @@ select {
 .reaction-button__most,
 .reaction-button__list__most {
   margin: 0;
-  position: absolute;
+  position: relative;
 }
 
 .reaction-button > img {
@@ -903,6 +909,15 @@ select {
 
   .celebrity-card__list {
     display: block;
+  }
+
+  .reaction-button__most,
+  .reaction-button__list__most {
+    position: absolute;
+  }
+
+  .celebrity-card__title__padding {
+    padding: 0px 36px 0px 36px;
   }
 }
 
