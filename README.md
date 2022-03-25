@@ -12,6 +12,7 @@ There's a live demo in: https://ruleofthumb2022.netlify.app/
 
 ## Extra Info
 This application was made as a solution for: [Zemoga Front End Development - Candidate Test v2.1](https://github.com/zemoga/ui-test)
+
 To be able to run this application locally you must have at least [NodeJS](https://nodejs.org/), [NPM](https://www.npmjs.com/) and the [Angular CLI](https://angular.io/cli).
 
 ## Contributors ✨
