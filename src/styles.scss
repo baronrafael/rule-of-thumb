@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
+
 :root {
   --color-green-positive: 60, 187, 180;
   --color-yellow-negative: 249, 173, 29;
@@ -762,13 +764,10 @@ select {
   text-overflow: ellipsis;
 }
 
-.celebrity-card__list__data {
-  .celebrity-card__data {
-    display: flex;
-    height: 36px;
-    justify-content: space-between;
-  }
+.celebrity-card__list__actions {
+  min-width: 197px;
 }
+
 
 @media all and (min-width: 500px) {
   .banner-top .banner__left {
@@ -1164,4 +1163,9 @@ select {
   .celebrity-list__button {
     height: 45px;
   }
+
+  .celebrity-card__list__actions {
+    min-width: 227px;
+  }
+
 }
