@@ -16,6 +16,7 @@ export class CelebrityService {
   getCelebritys(): Observable<Celebrity[] | undefined> {
     return this.celebritys$.asObservable();
   }
+
   setCelebritys(celebritys: Celebrity[] | undefined) {
     this.celebritys$.next(celebritys);
     localStorage.setItem(this.celebritysKey, JSON.stringify(celebritys))
