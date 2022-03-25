@@ -624,7 +624,7 @@ select {
 .reaction-button__most,
 .reaction-button__list__most {
   margin: 0;
-  position: absolute;
+  position: relative;
 }
 
 .reaction-button > img {
@@ -903,6 +903,11 @@ select {
 
   .celebrity-card__list {
     display: block;
+  }
+
+  .reaction-button__most,
+  .reaction-button__list__most {
+    position: absolute;
   }
 }
 
