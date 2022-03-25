@@ -1,23 +1,42 @@
 <div class="celebrity-card__list__content">
+  <button
+    *ngIf="celebrity.votes.positive*100/(celebrity.votes.positive+celebrity.votes.negative) > celebrity.votes.negative*100/(celebrity.votes.positive+celebrity.votes.negative)"
+    class="icon-button reaction-button reaction-button__list__most" aria-label="thumbs up">
+    <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
+  </button>
+  <button
+    *ngIf="celebrity.votes.positive*100/(celebrity.votes.positive+celebrity.votes.negative) < celebrity.votes.negative*100/(celebrity.votes.positive+celebrity.votes.negative)"
+    class="icon-button reaction-button reaction-button__list__most" aria-label="thumbs down">
+    <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
+  </button>
   <div class="celebrity-card__list__info">
     <div class="celebrity-card__list__text">
       <h2 class="celebrity-card__list__title">{{celebrity.name}}</h2>
       <p class="celebrity-card__list__desc">{{celebrity.description}}</p>
     </div>
     <div>
-      <p class="celebrity-card__time">
+      <p *ngIf="!bAlreadyVote" class="celebrity-card__time">
         {{(celebrity.lastUpdated | dfnsParseIso) | dfnsFormatDistanceToNow}} in <span
           class="celebrity-card__categ">{{celebrity.category}}</span>
       </p>
+      <p *ngIf="bAlreadyVote" class="celebrity-card__time">Thank you for your vote!</p>
       <div class="celebrity-card__buttons">
-        <button class="icon-button reaction-button reaction-list__button" aria-label="thumbs up">
+        <button *ngIf="!bAlreadyVote" (click)="selectVoteUp()" class="icon-button reaction-button reaction-list__button"
+          aria-label="thumbs up" [ngClass]="{'selected-reaction':selectedVote === 1}">
           <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
         </button>
-        <button class="icon-button reaction-button reaction-list__button" aria-label="thumbs down">
+        <button *ngIf="!bAlreadyVote" (click)="selectVoteDown()"
+          class="icon-button reaction-button reaction-list__button" aria-label="thumbs down"
+          [ngClass]="{'selected-reaction':selectedVote === -1}">
           <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
         </button>
-        <button class="celebrity-button celebrity-list__button" aria-label="vote now">
+        <button *ngIf="!bAlreadyVote" (click)="vote()" class="celebrity-button celebrity-list__button"
+          aria-label="vote now" [disabled]="!selectedVote">
           Vote Now
+        </button>
+        <button *ngIf="bAlreadyVote" (click)="voteAgain()" class="celebrity-button celebrity-list__button"
+          aria-label="vote again">
+          Vote Again
         </button>
       </div>
     </div>
