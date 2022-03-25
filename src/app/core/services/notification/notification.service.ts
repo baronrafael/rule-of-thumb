@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class NotificationService {
 
-  activeLang!: string;
+  errMessage: string = 'Something went wrong...'
 
   constructor(
     private toastr: ToastrService
@@ -31,6 +31,10 @@ export class NotificationService {
 
   errorMessage(message: string) {
     this.toastr.error(message);
+  }
+
+  generalErrorMessage() {
+    this.toastr.error(this.errMessage);
   }
 
   errorMessageWithTitle(message: string, title: string) {
