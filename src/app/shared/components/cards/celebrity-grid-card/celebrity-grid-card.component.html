@@ -15,19 +15,25 @@
       <h2 class="celebrity-card__title celebrity-card__item__padding">{{celebrity.name}}</h2>
     </div>
     <p class="celebrity-card__desc celebrity-card__item__padding">{{celebrity.description}}</p>
-    <p class="celebrity-card__time celebrity-card__item__padding">
+    <p *ngIf="!bAlreadyVote" class="celebrity-card__time celebrity-card__item__padding">
       {{(celebrity.lastUpdated | dfnsParseIso) | dfnsFormatDistanceToNow}} in <span
         class="celebrity-card__categ">{{celebrity.category}}</span>
     </p>
+    <p *ngIf="bAlreadyVote" class="celebrity-card__time celebrity-card__item__padding">Thank you for your vote!</p>
     <div class="celebrity-card__buttons celebrity-card__item__padding">
-      <button class="icon-button reaction-button" aria-label="thumbs up">
+      <button *ngIf="!bAlreadyVote" (click)="selectVoteUp()" class="icon-button reaction-button" aria-label="thumbs up"
+        [ngClass]="{'selected-reaction':selectedVote === 1}">
         <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
       </button>
-      <button class="icon-button reaction-button" aria-label="thumbs down">
+      <button *ngIf="!bAlreadyVote" (click)="selectVoteDown()" class="icon-button reaction-button" aria-label="thumbs down"
+        [ngClass]="{'selected-reaction':selectedVote === -1}">
         <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
       </button>
-      <button class="celebrity-button" aria-label="vote now">
+      <button *ngIf="!bAlreadyVote" (click)="vote()" class="celebrity-button" aria-label="vote now" [disabled]="!selectedVote">
         Vote Now
+      </button>
+      <button *ngIf="bAlreadyVote" (click)="voteAgain()" class="celebrity-button" aria-label="vote again">
+        Vote Again
       </button>
     </div>
   </div>
