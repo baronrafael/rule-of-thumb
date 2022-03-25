@@ -1,4 +1,28 @@
-# RuleOfThumb
+# Rule Of Thumb App
+
+A SPA made with Angular 13 to comment on celebrities through votes.
+
+- [Angular](https://angular.io/)
+- [date-fns](https://date-fns.org/)
+- [ngx-date-fns](https://github.com/joanllenas/ngx-date-fns)
+- [ngx-toastr](ngx-toastr)
+- [Netlify](https://www.netlify.com/)
+
+There's a live demo in: https://ruleofthumb2022.netlify.app/
+
+## Extra Info
+This application was made as a solution for: [Zemoga Front End Development - Candidate Test v2.1](https://github.com/zemoga/ui-test)
+To be able to run this application locally you must have at least [NodeJS](https://nodejs.org/), [NPM](https://www.npmjs.com/) and the [Angular CLI](https://angular.io/cli).
+
+## Contributors ✨
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/baronrafael"><img src="https://avatars.githubusercontent.com/u/32656967?v=4" width="100px;" alt=""/><br /><sub><b>Rafael Barón</b></sub></a></td>
+  </tr>
+</table>
+
+
+# Rule Of Thumb (Angular Info)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
