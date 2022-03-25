@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CelebrityService } from 'src/app/core/services/celebrity/celebrity.service';
+import { NotificationService } from 'src/app/core/services/notification/notification.service';
 import { Celebrity } from 'src/app/shared/interfaces/celebrity';
 
 const MAX_PHONE_SIZE = 767;
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   subscriptionArray: Subscription[] = [];
 
   constructor(
-    private celebrityService: CelebrityService
+    private celebrityService: CelebrityService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit(): void {
@@ -53,6 +55,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         },
         error: (err) => {
           console.error(err);
+          this.notificationService.generalErrorMessage();
         }
       });
     this.subscriptionArray.push(this.celebritysSubscription);
@@ -67,7 +70,8 @@ export class HomeComponent implements OnInit, OnDestroy {
           this.celebrityService.setCelebritys(this.celebritys);
         },
         error: (err) => {
-          console.error(err);
+          //console.error(err);
+          this.notificationService.generalErrorMessage();
         }
       });
     this.subscriptionArray.push(this.originalCelebritysSubscription);
