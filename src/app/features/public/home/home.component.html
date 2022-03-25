@@ -8,50 +8,23 @@
     <div class="celebrity-section__header">
       <h2 class="celebrity-section__title">Previous Rulings</h2>
       <div class="select">
-        <select id="standard-select">
-          <option value="grid">Grid</option>
-          <option value="list">List</option>
+        <select [(ngModel)]="bGridCards" id="standard-select">
+          <option [ngValue]="true">Grid</option>
+          <option [ngValue]="false">List</option>
         </select>
       </div>
     </div>
-    <div class="celebrity-card__container">
-      <div *ngFor="let card of celebritys" class="celebrity-card"
-        [ngStyle]="{'background-image': 'url(/assets/img/'+card.picture+')'}">
-        <div class="celebrity-card__content">
-          <div class="celebrity-card__info">
-            <h2 class="celebrity-card__title">{{card.name}}</h2>
-            <p class="celebrity-card__desc">{{card.description}}</p>
-            <p class="celebrity-card__time">
-              {{(card.lastUpdated | dfnsParseIso) | dfnsFormatDistanceToNow}} in <span
-                class="celebrity-card__categ">{{card.category}}</span>
-            </p>
-            <div class="celebrity-card__buttons">
-              <button class="icon-button reaction-button" aria-label="thumbs up">
-                <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
-              </button>
-              <button class="icon-button reaction-button" aria-label="thumbs down">
-                <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
-              </button>
-              <button class="celebrity-button" aria-label="vote now">
-                Vote Now
-              </button>
-            </div>
-          </div>
-          <div class="celebrity-card__data"
-            [ngStyle]="{'background': 'linear-gradient(90deg, rgba(60, 187, 180, 0.8) '+card.votes.positive*100/(card.votes.positive+card.votes.negative)+'%, rgba(249, 173, 29, 0.8) '+card.votes.positive*100/(card.votes.positive+card.votes.negative)+'%)'}">
-            <div aria-label="thumbs up">
-              <img src="assets/img/thumbs-up.svg" alt="thumbs up" />
-              <span class="percentage-number">{{ (card.votes.positive/(card.votes.positive+card.votes.negative) |
-                percent) }}</span>
-            </div>
-            <div aria-label="thumbs down">
-              <img src="assets/img/thumbs-down.svg" alt="thumbs down" />
-              <span class="percentage-number">{{ (card.votes.negative/(card.votes.positive+card.votes.negative) |
-                percent) }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div (window:resize)="checkScreenSize($event)" class="celebrity-card__container">
+      <ng-container *ngIf="bGridCards">
+        <app-celebrity-grid-card *ngFor="let celebrity of celebritys" [celebrity]="celebrity" class="celebrity-card"
+          [ngStyle]="{'background-image': 'url(/assets/img/'+celebrity.picture+')'}">
+        </app-celebrity-grid-card>
+      </ng-container>
+      <ng-container *ngIf="!bGridCards">
+        <app-celebrity-list-card *ngFor="let celebrity of celebritys" [celebrity]="celebrity" class="celebrity-card__list"
+        [ngStyle]="{'background-image': 'url(/assets/img/'+celebrity.picture+')'}">
+      </app-celebrity-list-card>
+      </ng-container>
     </div>
     <!-- End: Implementation -->
   </main>
