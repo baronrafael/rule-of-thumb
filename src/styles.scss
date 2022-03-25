@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr';
+
 :root {
   --color-green-positive: 60, 187, 180;
   --color-yellow-negative: 249, 173, 29;
