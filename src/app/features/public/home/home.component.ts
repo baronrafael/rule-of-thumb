@@ -5,6 +5,7 @@ import { NotificationService } from 'src/app/core/services/notification/notifica
 import { Celebrity } from 'src/app/shared/interfaces/celebrity';
 
 const MAX_PHONE_SIZE = 767;
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -75,6 +76,10 @@ export class HomeComponent implements OnInit, OnDestroy {
         }
       });
     this.subscriptionArray.push(this.originalCelebritysSubscription);
+  }
+
+  trackByFn(index: number): number {
+    return index;
   }
 
   ngOnDestroy(): void {
