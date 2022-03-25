@@ -770,6 +770,11 @@ select {
   }
 }
 
+.celebrity-card__list__actions {
+  min-width: 197px;
+}
+
+
 @media all and (min-width: 500px) {
   .banner-top .banner__left {
     flex-basis: 30%;
@@ -1164,4 +1169,9 @@ select {
   .celebrity-list__button {
     height: 45px;
   }
+
+  .celebrity-card__list__actions {
+    min-width: 227px;
+  }
+
 }
