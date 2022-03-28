@@ -40,7 +40,7 @@ export class CelebrityCardsListComponent implements OnInit, OnDestroy {
     this.celebritysSubscription = this.celebrityService.getCelebritys()
       .subscribe({
         next: (res: Celebrity[] | undefined) => {
-          console.log(res);
+          //console.log(res);
           if (!res) {
             if (!this.celebrityService.getAllFromStorage() || this.celebrityService.getAllFromStorage() === undefined) {
               this.getOriginalCelebritys();
@@ -54,7 +54,7 @@ export class CelebrityCardsListComponent implements OnInit, OnDestroy {
           }
         },
         error: (err) => {
-          console.error(err);
+          //console.error(err);
           this.notificationService.generalErrorMessage();
         }
       });
@@ -65,7 +65,7 @@ export class CelebrityCardsListComponent implements OnInit, OnDestroy {
     this.originalCelebritysSubscription = this.celebrityService.getOriginalData()
       .subscribe({
         next: (res: Celebrity[]) => {
-          console.log(res);
+          //console.log(res);
           this.celebritys = res;
           this.celebrityService.setCelebritys(this.celebritys);
         },
