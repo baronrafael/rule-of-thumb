@@ -1,0 +1,16 @@
+<div class="celebrity-card__buttons">
+  <button *ngIf="!bAlreadyVote" (click)="selectVoteUp()" class="icon-button reaction-button" aria-label="thumbs up"
+    [ngClass]="{'selected-reaction':selectedVote === 1}">
+    <img src="assets/img/thumbs-up.svg" alt="thumbs up" loading="lazy" />
+  </button>
+  <button *ngIf="!bAlreadyVote" (click)="selectVoteDown()" class="icon-button reaction-button" aria-label="thumbs down"
+    [ngClass]="{'selected-reaction':selectedVote === -1}">
+    <img src="assets/img/thumbs-down.svg" alt="thumbs down" loading="lazy" />
+  </button>
+  <button *ngIf="!bAlreadyVote" (click)="vote()" class="celebrity-button" aria-label="vote now" [disabled]="!selectedVote">
+    Vote Now
+  </button>
+  <button *ngIf="bAlreadyVote" (click)="voteAgain()" class="celebrity-button" aria-label="vote again">
+    Vote Again
+  </button>
+</div>

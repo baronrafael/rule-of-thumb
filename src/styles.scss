@@ -573,10 +573,6 @@ select {
   align-items: flex-end;
 }
 
-.celebrity-card__item__padding {
-  padding: 0px 36px 0px 36px;
-}
-
 .celebrity-card__title__padding {
   padding: 0px 36px 0px 6px;
   max-width: calc(100% - 72px);
@@ -658,6 +654,10 @@ select {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.celebrity-card * .celebrity-card__buttons, .celebrity-card * .celebrity-card__desc , .celebrity-card * .celebrity-card__time {
+  padding: 0px 36px 0px 36px;
 }
 
 .celebrity-card__data {
