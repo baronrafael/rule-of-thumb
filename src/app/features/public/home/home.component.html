@@ -3,22 +3,7 @@
 <div class="max-centered">
   <app-banner-top></app-banner-top>
   <main role="main">
-    <div class="celebrity-section__header">
-      <h2 class="celebrity-section__title">Previous Rulings</h2>
-      <div class="select">
-        <select [(ngModel)]="bGridCards" id="standard-select">
-          <option [ngValue]="true">Grid</option>
-          <option [ngValue]="false">List</option>
-        </select>
-      </div>
-    </div>
-    <div (window:resize)="checkScreenSize($event)" class="celebrity-card__container">
-      <app-celebrity-card *ngFor="let celebrity of celebritys; let i = index; trackBy: trackByFn"
-        [celebrity]="celebrity" [celebritys]="celebritys" [index]="i" [bGridCards]="bGridCards"
-        [ngClass]="{'celebrity-card': bGridCards, 'celebrity-card__list': !bGridCards}"
-        [ngStyle]="{'background-image': 'url(/assets/img/'+celebrity.picture+')'}">
-      </app-celebrity-card>
-    </div>
+    <app-celebrity-cards-list></app-celebrity-cards-list>
   </main>
   <app-banner-bottom></app-banner-bottom>
   <app-footer></app-footer>
