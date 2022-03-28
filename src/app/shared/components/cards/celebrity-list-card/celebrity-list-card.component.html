@@ -20,25 +20,7 @@
           class="celebrity-card__categ">{{celebrity.category}}</span>
       </p>
       <p *ngIf="bAlreadyVote" class="celebrity-card__time">Thank you for your vote!</p>
-      <div class="celebrity-card__buttons">
-        <button *ngIf="!bAlreadyVote" (click)="selectVoteUp()" class="icon-button reaction-button reaction-list__button"
-          aria-label="thumbs up" [ngClass]="{'selected-reaction':selectedVote === 1}">
-          <img src="assets/img/thumbs-up.svg" alt="thumbs up" loading="lazy" loading="lazy" />
-        </button>
-        <button *ngIf="!bAlreadyVote" (click)="selectVoteDown()"
-          class="icon-button reaction-button reaction-list__button" aria-label="thumbs down"
-          [ngClass]="{'selected-reaction':selectedVote === -1}">
-          <img src="assets/img/thumbs-down.svg" alt="thumbs down" loading="lazy" />
-        </button>
-        <button *ngIf="!bAlreadyVote" (click)="vote()" class="celebrity-button celebrity-list__button"
-          aria-label="vote now" [disabled]="!selectedVote">
-          Vote Now
-        </button>
-        <button *ngIf="bAlreadyVote" (click)="voteAgain()" class="celebrity-button celebrity-list__button"
-          aria-label="vote again">
-          Vote Again
-        </button>
-      </div>
+      <app-celebrity-card-buttons [celebrity]="celebrity" [celebritys]="celebritys" (bAlreadyVoteValue)="changeAlreadyVoteValue($event)"></app-celebrity-card-buttons>
     </div>
   </div>
   <app-gauge-bar [votes]="celebrity.votes"></app-gauge-bar>
