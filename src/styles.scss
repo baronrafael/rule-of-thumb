@@ -1135,12 +1135,12 @@ select {
     font-size: 0.9rem;
   }
 
-  .celebrity-card__list__data {
+  .celebrity-card__list * .celebrity-card__data {
     height: 54px;
   }
 
   .celebrity-card__list {
-    height: 170px;
+    height: 185px;
     margin-left: 1rem;
     margin-right: 1rem;
   }
