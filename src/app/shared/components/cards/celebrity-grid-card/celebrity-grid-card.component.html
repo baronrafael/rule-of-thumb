@@ -37,20 +37,6 @@
       </button>
     </div>
   </div>
-  <div class="celebrity-card__data"
-    [ngStyle]="{'background': 'linear-gradient(90deg, rgba(60, 187, 180, 0.8) '+celebrity.votes.positive*100/(celebrity.votes.positive+celebrity.votes.negative)+'%, rgba(249, 173, 29, 0.8) '+celebrity.votes.positive*100/(celebrity.votes.positive+celebrity.votes.negative)+'%)'}">
-    <div aria-label="thumbs up">
-      <img src="assets/img/thumbs-up.svg" alt="thumbs up" loading="lazy" />
-      <span class="percentage-number">{{ (celebrity.votes.positive/(celebrity.votes.positive+celebrity.votes.negative)
-        |
-        percent) }}</span>
-    </div>
-    <div aria-label="thumbs down">
-      <img src="assets/img/thumbs-down.svg" alt="thumbs down" loading="lazy" />
-      <span class="percentage-number">{{ (celebrity.votes.negative/(celebrity.votes.positive+celebrity.votes.negative)
-        |
-        percent) }}</span>
-    </div>
-  </div>
+  <app-gauge-bar [votes]="celebrity.votes"></app-gauge-bar>
 </div>
 <!-- </div> -->

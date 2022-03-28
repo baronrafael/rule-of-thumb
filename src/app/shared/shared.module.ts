@@ -11,6 +11,7 @@ import { CelebrityGridCardComponent } from './components/cards/celebrity-grid-ca
 import { CelebrityListCardComponent } from './components/cards/celebrity-list-card/celebrity-list-card.component';
 import { CelebrityCardComponent } from './components/cards/celebrity-card/celebrity-card.component';
 import { CelebrityCardsListComponent } from './components/lists/celebrity-cards-list/celebrity-cards-list.component';
+import { GaugeBarComponent } from './components/gauge-bar/gauge-bar.component';
 
 const MODULES = [
   FormsModule,
@@ -26,7 +27,8 @@ const COMPONENTS = [
   CelebrityGridCardComponent,
   CelebrityListCardComponent,
   CelebrityCardComponent,
-  CelebrityCardsListComponent
+  CelebrityCardsListComponent,
+  GaugeBarComponent
 ];
 
 @NgModule({
