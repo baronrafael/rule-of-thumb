@@ -9,6 +9,8 @@ import { BannerBottomComponent } from './components/banner-bottom/banner-bottom.
 import { FooterComponent } from './components/footer/footer.component';
 import { CelebrityGridCardComponent } from './components/cards/celebrity-grid-card/celebrity-grid-card.component';
 import { CelebrityListCardComponent } from './components/cards/celebrity-list-card/celebrity-list-card.component';
+import { CelebrityCardComponent } from './components/cards/celebrity-card/celebrity-card.component';
+import { CelebrityCardsListComponent } from './components/list/celebrity-cards-list/celebrity-cards-list.component';
 
 const MODULES = [
   FormsModule,
@@ -22,7 +24,9 @@ const COMPONENTS = [
   BannerBottomComponent,
   FooterComponent,
   CelebrityGridCardComponent,
-  CelebrityListCardComponent
+  CelebrityListCardComponent,
+  CelebrityCardComponent,
+  CelebrityCardsListComponent
 ];
 
 @NgModule({
